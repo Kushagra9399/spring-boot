@@ -3,6 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
@@ -23,27 +24,36 @@
     <properties>
         <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Dependency Versions -->
+        <spring.boot.version>2.5.0</spring.boot.version>
+        <h2.version>1.4.200</h2.version>
+        <lombok.version>1.18.20</lombok.version>
+        <log4j.version>2.14.1</log4j.version>
+        <spring.boot.maven.plugin.version>2.5.0</spring.boot.maven.plugin.version>
     </properties>
 
     <dependencies>
+
         <!-- Spring Boot Web Starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>2.5.0</version>
+            <version>${spring.boot.version}</version>
         </dependency>
 
         <!-- Spring Boot Data JPA -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-            <version>2.5.0</version>
+            <version>${spring.boot.version}</version>
         </dependency>
 
         <!-- H2 Database (in-memory) -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
             <scope>runtime</scope>
         </dependency>
 
@@ -51,6 +61,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
             <optional>true</optional>
         </dependency>
 
@@ -58,25 +69,29 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.14.1</version>
+            <version>${log4j.version}</version>
         </dependency>
 
-        <!-- Spring Boot Actuator (exposed endpoints) -->
+        <!-- Spring Boot Actuator -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-            <version>2.5.0</version>
+            <version>${spring.boot.version}</version>
         </dependency>
+
     </dependencies>
 
     <build>
         <plugins>
+
+            <!-- Spring Boot Maven Plugin -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.maven.plugin.version}</version>
             </plugin>
+
         </plugins>
     </build>
-</project>
 
-<!-- Made with Bob -->
+</project>
